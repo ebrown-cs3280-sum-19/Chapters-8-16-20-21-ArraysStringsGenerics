@@ -149,12 +149,12 @@ namespace Chapter_8_16_26_27_Array
             Hashtable MyHash = new Hashtable();
 
             //Add some values to it
-            MyHash.Add(1, "Shawn");
+            MyHash.Add("528-66-666", "Shawn");
             MyHash.Add("528-88-888", "Mike");
             MyHash.Add("528-77-777", "John");
 
             //Display the values using the keys
-            lblHash.Text += MyHash[1].ToString();
+            lblHash.Text += MyHash["528-66-666"].ToString();
             lblHash.Text += "\n";
 
             lblHash.Text += MyHash["528-88-888"].ToString();
@@ -179,6 +179,11 @@ namespace Chapter_8_16_26_27_Array
             {
                 lblHash.Text += "False";
             }
+
+            // key as custom class
+            MyClass myClass = new MyClass();
+            MyHash.Add(myClass, "value");
+            lblHash.Text += $"{MyHash[myClass]} \n";
         }
 
         #endregion
@@ -252,5 +257,8 @@ namespace Chapter_8_16_26_27_Array
 
         #endregion
 
+    }
+    class MyClass {
+        public string Property { get; set; }
     }
 }
